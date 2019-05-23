@@ -1,0 +1,59 @@
+# Includes complete Jenkins configuration in order to run croc-hunter pipeline
+# To install on your own cluster, run:
+# helm --namespace jenkins --name jenkins -f ./jenkins-values.yaml install stable/jenkins
+
+master:
+  imageTag: "2.164.2"
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "256Mi"
+    limits:
+      cpu: "2000m"
+      memory: "2048Mi"
+  HostName: kubeconeu.h3.az.jessicadeen.com
+  serviceType: ClusterIP
+  servicePort: 8080
+  installPlugins:
+      - kubernetes:1.15.1
+      - pipeline-stage-view:2.10
+      - pipeline-rest-api:2.10
+      - workflow-aggregator:2.6
+      - credentials-binding:1.18
+      - git:3.9.3
+      - pipeline-github-lib:1.0
+      - ghprb:1.42.0
+      - blueocean:1.14.0
+      - artifactory:3.2.2
+      - tfs:5.142.0
+
+  scriptApproval:
+    - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
+    - "new groovy.json.JsonSlurperClassic"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods leftShift java.util.Map java.util.Map"
+    - "staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods split java.lang.String"
+    - "method java.util.Collection toArray"
+    - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedCall java.lang.Object boolean boolean java.lang.String java.lang.Object[]"
+    - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedGetProperty java.lang.Object boolean boolean java.lang.Object"
+
+  Ingress:
+    ApiVersion: extensions/v1beta1
+    Annotations:
+      kubernetes.io/ingress.class: nginx
+      kubernetes.io/tls-acme: "true"
+      certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+      ingress.kubernetes.io/secure-backends: "true"
+
+    TLS:
+      - secretName: kubeconeu.h3.az.jessicadeen.com
+        hosts:
+          - kubeconeu.h3.az.jessicadeen.com
+
+agent:
+  Enabled: false
+
+rbac:
+  create: true
+  serviceAccount.name: default
+  # RBAC api version (currently either v1beta1 or v1alpha1)
+  apiVersion: v1beta1
