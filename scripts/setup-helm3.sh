@@ -12,6 +12,9 @@ tar xvzf $helmVersion
 mkdir /usr/local/bin/tmp
 mv darwin-amd64/helm /usr/local/bin/tmp/helm
 
+#TEMPORARY export $HELM_HOME so you don't overwrite Helm2 ~/.helm/
+export HELM_HOME=/tmp/helm3
+
 #set temp alias
 h3=/usr/local/bin/tmp/helm
 
