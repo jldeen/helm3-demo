@@ -19,5 +19,30 @@ h3 upgrade --install cert-mgr jetstack/cert-manager
 # Setup Certificate Cluster Issuer
 kubectl apply -f cluster-issuer.yaml
 
+#helm 2 still installed
+helm version
+
+#helm3-alpha1 alias
+h3 version
+
+#helm3-alpha1 list releases
+h3 ls
+
+#quick change namespace
+kubens kube-system
+
+#quick change namespace
+kubens kubecon
+
+#quick change namespace
+kubens default
+
 # Test configuration - Demo!
-h3 upgrade jenkins --install --namespace kubecon -f ./jenkins-values-demo.yaml stable/jenkins
+h3 upgrade jenkins --install --namespace kubecon-live -f ./jenkins-values-demo.yaml stable/jenkins
+
+#command to get admin password
+#update these parameters
+namespace=default
+helmReleaseName=jenkins
+
+printf $(kubectl get secret --namespace $namespace $helmReleaseName -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
