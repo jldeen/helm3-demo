@@ -17,7 +17,7 @@ h3=/usr/local/bin/tmp/helm
 
 #add alias to .zshrc or .bashrc
 #set helm home to local tmp folder, to not overwrite your helm2 ~/.helm
-echo "alias h3=/usr/local/bin/tmp/helm --home /usr/local/bin/tmp/.helm" >> ~/.zshrc
-echo "alias h3=/usr/local/bin/tmp/helm --home /usr/local/bin/tmp/.helm" >> ~/.bashrc
+echo "alias h3=\"/usr/local/bin/tmp/helm --home /usr/local/bin/tmp/.helm\"" >> ~/.zshrc
+# echo "alias h3=\"/usr/local/bin/tmp/helm --home /usr/local/bin/tmp/.helm\"" >> ~/.bashrc
 # echo "alias h3=/usr/local/bin/tmp/helm" >> ~/.bashrc
 
