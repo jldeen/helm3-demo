@@ -11,7 +11,6 @@ master:
     limits:
       cpu: "2000m"
       memory: "2048Mi"
-  HostName: kubeconeu.h3.az.jessicadeen.com
   serviceType: ClusterIP
   servicePort: 8080
   installPlugins:
@@ -36,15 +35,17 @@ master:
     - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedCall java.lang.Object boolean boolean java.lang.String java.lang.Object[]"
     - "staticMethod org.kohsuke.groovy.sandbox.impl.Checker checkedGetProperty java.lang.Object boolean boolean java.lang.Object"
 
-  Ingress:
-    ApiVersion: extensions/v1beta1
-    Annotations:
+  ingress:
+    enabled: true
+    apiVersion: extensions/v1beta1
+    annotations:
       kubernetes.io/ingress.class: nginx
       kubernetes.io/tls-acme: "true"
       certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       ingress.kubernetes.io/secure-backends: "true"
-
-    TLS:
+    
+    hostName: kubeconeu.h3.az.jessicadeen.com
+    tls:
       - secretName: kubeconeu.h3.az.jessicadeen.com
         hosts:
           - kubeconeu.h3.az.jessicadeen.com
