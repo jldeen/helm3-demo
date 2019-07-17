@@ -22,3 +22,7 @@ h3=/usr/local/bin/tmp/helm
 echo "alias h3=/usr/local/bin/tmp/helm" >> ~/.zshrc
 # echo "alias h3=/usr/local/bin/tmp/helm" >> ~/.bashrc
 
+# cleanup
+rm -rf $helmVersion
+rm -rf darwin-amd64
+
