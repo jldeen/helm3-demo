@@ -44,11 +44,11 @@ master:
       certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       ingress.kubernetes.io/secure-backends: "true"
     
-    hostName: kubeconeu.h3.az.jessicadeen.com
+    hostName: oscon19.h3.az.jessicadeen.com
     tls:
-      - secretName: kubeconeu.h3.az.jessicadeen.com
+      - secretName: oscon19.h3.az.jessicadeen.com
         hosts:
-          - kubeconeu.h3.az.jessicadeen.com
+          - oscon19.h3.az.jessicadeen.com
 
 agent:
   Enabled: false
