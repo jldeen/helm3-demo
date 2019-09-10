@@ -3,7 +3,7 @@
 # helm --namespace jenkins --name jenkins -f ./jenkins-values.yaml install stable/jenkins
 
 master:
-  imageTag: "2.164.2"
+  tag: "2.164.2"
   resources:
     requests:
       cpu: "50m"
@@ -44,11 +44,11 @@ master:
       certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       ingress.kubernetes.io/secure-backends: "true"
     
-    hostName: oscon19.h3.az.jessicadeen.com
+    hostName: helmsummit.h3.az.jessicadeen.com
     tls:
-      - secretName: oscon19.h3.az.jessicadeen.com
+      - secretName: helmsummit.h3.az.jessicadeen.com
         hosts:
-          - oscon19.h3.az.jessicadeen.com
+          - helmsummit.h3.az.jessicadeen.com
 
 agent:
   Enabled: false

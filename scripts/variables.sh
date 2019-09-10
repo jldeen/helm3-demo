@@ -6,6 +6,7 @@ LOCATION=eastus
 SUB='ca-jessde-demo-test'
 CLUSTER_NAME=jdk8s3
 NODECOUNT=3
+BLOBSTORENAME=jdk8s
 
 function base() 
 {
@@ -23,6 +24,12 @@ function location()
 {
     local  location=$LOCATION
     echo "$location"
+}
+function blobStoreName()
+{
+    local blobStoreName=$BLOBSTORENAME
+    echo "$blobStoreName"
+
 }
 function subscription() 
 {

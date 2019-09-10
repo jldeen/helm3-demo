@@ -67,4 +67,5 @@ h3 upgrade crochunter --install --namespace default --set ingress.hostname=croch
 kubectl get pods -n $namespace
 
 #command to get admin password
-printf $(kubectl get secret --namespace $namespace $helmReleaseName -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+ printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+
