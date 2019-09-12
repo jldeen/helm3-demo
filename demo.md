@@ -154,7 +154,7 @@ While the Jenkins build server is installing, let's try one more chart repo add 
 
 `h3 repo add jdcharts https://jdk8s.blob.core.windows.net/helm/`
 
-And, without further adieu, let's bring back crochunter.
+And, without further ado, let's bring back crochunter.
 
 `h3 upgrade crochunter --install --namespace default --set ingress.hostname=crochunter.h3.az.jessicadeen.com,image=jldeen/croc-hunter,imageTag=0.3.1 jdcharts/croc-hunter`
 
