@@ -55,8 +55,8 @@ Note: To ensure we don't confuse ourselves, I changed `helm` to `h3` for helm3 c
 It didn't work. What gives? Remember, the default for Helm3: no repos are added initially - we have to add them. So let's add some familiar repos:
 
 ```
-helm repo add stable http://storage.googleapis.com/kubernetes-charts
-helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+h3 repo add stable http://storage.googleapis.com/kubernetes-charts
+h3 repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 ```
 
 Now let's try our nginx-ingress install again:
@@ -66,8 +66,8 @@ Now let's try our nginx-ingress install again:
 Cool. It works. We can run some basic K8s commands to make sure we can see our Load Balancer IP and pod up and running. 
 
 ```
-k get pods
-k get svc
+kubectl get pods
+kubectl get svc
 ```
 
 We can optionally setup some CRDS so we can also install a certificate manager (from Jetstack's repo), but it's not _required_ ... up to you.
