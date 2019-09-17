@@ -69,3 +69,9 @@ kubectl get pods -n $namespace
 #command to get admin password
  printf $(kubectl get secret --namespace default jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
+# helm2to3 plugin (install using helm2)
+helm plugin install https://github.com/helm/helm-2to3
+
+# convert helm2 to helm3 release
+helm 2to3 convert --dry-run RELEASE
+

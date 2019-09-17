@@ -183,6 +183,28 @@ h3 lint
 
 Notice the difference? We not get an error in Helm 3 because we didn't specify `apiVersion:` in our chart.yaml, which is now required. You'll notice the chart in our `helmsummit` branch includes the requried `apiVersion:1`
 
+### Migration story: Migrate releases in-place to Helm v3
+
+Great, you've made it this far and you can see that charts that work with Helm2 work with Helm3. Now how do you migrate your releases from Helm2 to Helm3? You can do that with a plugin!
+
+First you want to use Helm2 to install the plugin:
+
+`helm plugin install https://github.com/helm/helm-2to3`
+
+This plugin will migrate:
+
+- Chart starters
+- Repositories
+- Plugins
+
+Once you've you've installed the Helm-2to3 plugin, you can simulate a release conversion with the following command. Note the `--dry-run` flag:
+
+`helm 2to3 convert --dry-run RELEASE-NAME-HERE`
+
+Of course, now that you can see what release history objects will be created you can run the same command without the `--dry-run` flag to actually perform the migration.
+
+`helm 2to3 convert RELEASE-NAME-HERE`
+
 ### TO DO: add in rest of Jenkins Bonus Demo
 
 #### Helpful tools
