@@ -10,8 +10,8 @@ h3 upgrade --install nginx-ingress stable/nginx-ingress
 #stable 
 
 # add helm repos
-helm repo add stable http://storage.googleapis.com/kubernetes-charts
-helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
+h3 repo add stable http://storage.googleapis.com/kubernetes-charts
+h3 repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
 
 # Setup Nginx Ingress controller
 h3 upgrade --install nginx-ingress stable/nginx-ingress
