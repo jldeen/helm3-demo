@@ -4,6 +4,8 @@ This demo has been shown at:
 - Kubecon EU 2019
 - OSCON 2019
 - Helm Summit EU 2019
+- SLC Kubernetes Meetup
+- CloudNative Meetup TLV
 
 ## In this repo you will find
 
