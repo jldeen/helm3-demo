@@ -2,7 +2,7 @@
 set -eou pipefail
 
 #set helm version
-helmVersion=helm-v3.0.0-rc.3-darwin-amd64.tar.gz
+helmVersion=helm-v3.0.0-rc.4-darwin-amd64.tar.gz
 
 #download helm version
 wget https://get.helm.sh/$helmVersion
